@@ -4,26 +4,36 @@ import java.util.*;
 
 public class Solutions {
     public static void main(String[] args) {
-        int[] nums = {10,9,10,4,3,8,3,3,6,2,10,10,9,3};
-        int k = 19;
-        System.out.println(Solution9.numSubarrayProductLessThanK(nums, k));
+
+
+
     }
 }
-// 剑指offerⅡ 9.乘积小于K的子数组
+
+
+// 剑指offer 9.用两个栈实现队列
+
+
+
+// 剑指offerⅡ 9.乘积小于k的子数组
 class Solution9 {
     public static int numSubarrayProductLessThanK(int[] nums, int k) {
-        // 积累滑动窗口+双指针的思路，重新敲一遍代码
-        int n = nums.length;
-        int l = 0, r = 0;
-        int product = nums[0];// 当前成绩
-        int count = 0;
-
-
-
-
-
-
-
+        int count  = 0;
+        int length = nums.length;
+        // l作为左窗口
+        for(int l = 0; l < length; l++){
+            int r = l;
+            int product = nums[l];
+            while(product < k){
+                // 满足count就+1
+                count++;
+                // 右窗口滑动
+                r++;
+                // 防止数据超标
+                if(r == length) break;
+                product *= nums[r];
+            }
+        }
         return count;
     }
 }
@@ -115,9 +125,6 @@ class Solution5 {
     }
 }
 
-
-
-
 // 94.二叉树的中序遍历(二叉树)
 // 二叉树类
 class TreeNode {// 这里定义了二叉树结点类，其他地方也可以用了
@@ -148,7 +155,6 @@ class Solution4 {
         }
     }
 }
-
 
 // 13.罗马数字转整数(哈希表)
 class Solution3 {
